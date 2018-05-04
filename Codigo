@@ -1,0 +1,64 @@
+# BRAZO
+/*
+Brazo Robótico
+Version 1.0
+Manuela Correa López y Johan Perdomo.
+Este programa ha sido modificado por: Manuela Correa , Johan Perdomo
+
+03/05/2018
+*/
+
+#include <Servo.h>
+/*
+Estudiantes del programa Ingeniería Electrónica de la Universidad del Quindio.
+El brazo robótico ha sido diseñado en base a su funcionalidad en la vida
+cotidiana. Funciona a partir de 4 servos que permiten el movimiento mas
+fluido y continuo del BRAZO, permitiendo formar distintos ángulos para un
+mayor alcance de los objetos.
+*/
+
+#define pinBase 9
+#define pinArriba 11
+#define pinAbajo 8                  //Declaración de pines
+#define pinGarra 10
+#define Angulo 30
+
+
+Servo Base;                        //Declaracion de servos
+Servo Arriba;
+Servo Abajo;
+Servo Garra;
+
+void setup()                    // Solo corre una vez
+{
+    Serial.begin(9600);            // Es la velocidad de los datos
+    Base.attach(pinBase);          // attach permite utilizar els Servo
+    Arriba.attach(pinArriba);
+    Abajo.attach(pinAbajo);
+    Garra.attach(pinGarra);
+}
+
+void loop()
+ {
+   //Prueba base
+    Base.write(80);      //Estos son los grados en los que se mueven los servos
+    delay(500);
+    Base.write(110);
+    delay(500);
+    // Base.write(180);
+    //
+    Arriba.write(120);
+    delay(500);
+    Arriba.write(160);
+    delay(500);
+    //
+    Abajo.write(50);
+    delay(500);
+    Abajo.write(80);
+    delay(500);
+    //
+    Garra.write(70);
+    delay(500);
+    Garra.write(50);
+    delay(500);
+}
